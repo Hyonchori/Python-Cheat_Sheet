@@ -1,8 +1,8 @@
 # Python-Cheat_Sheet
  Cheat sheet for Python programming
 
-## 1. str.format()을 이용한 문자열 포맷팅
-```{python}
+## str.format()을 이용한 문자열 포맷팅
+```python
 print("이름: {0}, 나이: {1}세".format("홍길동", 20))   # {}안에 인덱스에 해당하는 값 표시
 print("이름: {1}, 나이: {0}세".format("홍길동", 20))
 
@@ -27,4 +27,23 @@ print("{0:0.2f}".format(3.141592))
 print("{0:10.2f}".format(3.141592))
 print("{0:010.2f}".format(3.141592))
 print("{{ {0:1f} }}".format(98.5))    # 부동소수점 표현 및 대괄포 {} 표현 방법
+```
+---
+## 클로저
+```python
+def outer_func():
+    id = 0
+    
+    def inner_func():
+        nonlocal id   # 변수 id가 중첩함수인 inner_func 함수의 지역변수가 아니라는 뜻
+                       # 이는 변수 id 접근 시 outer_func 함수의 스코프에서 찾게 만듦
+        id += 1
+        return id
+    
+    return inner_func
+
+make_id = outer_func()
+print("make_id() 호출의 결과: {}".format(make_id()))
+print("make_id() 호출의 결과: {}".format(make_id()))
+print("make_id() 호출의 결과: {}".format(make_id()))
 ```
