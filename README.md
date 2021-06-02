@@ -1,8 +1,8 @@
 # Python-Cheat_Sheet
  Cheat sheet for Python programming
 
-## 1. str.format()을 이용한 문자열 포맷팅
-```{python}
+## str.format()을 이용한 문자열 포맷팅
+```python
 print("이름: {0}, 나이: {1}세".format("홍길동", 20))   # {}안에 인덱스에 해당하는 값 표시
 print("이름: {1}, 나이: {0}세".format("홍길동", 20))
 
@@ -27,4 +27,49 @@ print("{0:0.2f}".format(3.141592))
 print("{0:10.2f}".format(3.141592))
 print("{0:010.2f}".format(3.141592))
 print("{{ {0:1f} }}".format(98.5))    # 부동소수점 표현 및 대괄포 {} 표현 방법
+```
+---
+## 가변 매개변수
+>**가변 매개변수 사용의 주의점**
+>- 하나만 지정할 수 있음
+>- 가장 마지막 매개변수로 지정할 것
+
+### - 튜플 형식의 가변 매개변수
+```python
+def calc_sum(*params):
+    total = 0
+    for val in params:
+        total += val
+    return total
+
+print(calc_sum(1, 2, 3))
+print(calc_sum(4))
+print(calc_sum(1, 3, 4, 5, 6, 7))
+```
+### - 딕셔너리 형식의 가변 매개변수
+```python
+def use_keyward_arg_unpacks(**params):
+    for k in params.keys():
+        print("{}: {}".format(k, params[k]))
+        
+use_keyward_arg_unpacks(a=1, b=2, c=3)
+```
+---
+## 클로저
+```python
+def outer_func():
+    id = 0
+    
+    def inner_func():
+        nonlocal id   # 변수 id가 중첩함수인 inner_func 함수의 지역변수가 아니라는 뜻
+                       # 이는 변수 id 접근 시 outer_func 함수의 스코프에서 찾게 만듦
+        id += 1
+        return id
+    
+    return inner_func
+
+make_id = outer_func()
+print("make_id() 호출의 결과: {}".format(make_id()))    # 1
+print("make_id() 호출의 결과: {}".format(make_id()))    # 2
+print("make_id() 호출의 결과: {}".format(make_id()))    # 3
 ```
