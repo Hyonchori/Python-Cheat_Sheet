@@ -29,6 +29,32 @@ print("{0:010.2f}".format(3.141592))
 print("{{ {0:1f} }}".format(98.5))    # 부동소수점 표현 및 대괄포 {} 표현 방법
 ```
 ---
+## 가변 매개변수
+>**가변 매개변수 사용의 주의점**
+>- 하나만 지정할 수 있음
+>- 가장 마지막 매개변수로 지정할 것
+
+### - 튜플 형식의 가변 매개변수
+```python
+def calc_sum(*params):
+    total = 0
+    for val in params:
+        total += val
+    return total
+
+print(calc_sum(1, 2, 3))
+print(calc_sum(4))
+print(calc_sum(1, 3, 4, 5, 6, 7))
+```
+### - 딕셔너리 형식의 가변 매개변수
+```python
+def use_keyward_arg_unpacks(**params):
+    for k in params.keys():
+        print("{}: {}".format(k, params[k]))
+        
+use_keyward_arg_unpacks(a=1, b=2, c=3)
+```
+---
 ## 클로저
 ```python
 def outer_func():
