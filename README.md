@@ -43,7 +43,7 @@ def outer_func():
     return inner_func
 
 make_id = outer_func()
-print("make_id() 호출의 결과: {}".format(make_id()))
-print("make_id() 호출의 결과: {}".format(make_id()))
-print("make_id() 호출의 결과: {}".format(make_id()))
+print("make_id() 호출의 결과: {}".format(make_id()))    # 1
+print("make_id() 호출의 결과: {}".format(make_id()))    # 2
+print("make_id() 호출의 결과: {}".format(make_id()))    # 3
 ```
