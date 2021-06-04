@@ -73,3 +73,36 @@ print("make_id() 호출의 결과: {}".format(make_id()))    # 1
 print("make_id() 호출의 결과: {}".format(make_id()))    # 2
 print("make_id() 호출의 결과: {}".format(make_id()))    # 3
 ```
+
+---
+## random 모듈
+- 난수 생성 관련 모듈
+```python
+from random import random, uniform, randrange, choice, choices, sample, shuffle
+
+print(random())         # 0.0 < N < 1.0 범위의 부동소수점 난수 N 반환
+print(uniform(1, 10))   # 지정된 범위 내의 부동소수점 난수 N 반환
+print(randrange(1, 45, 2))  # start, end, step 매개변수를 받아 정수형 난수 N 반환
+
+print(choice([1, 2, 3, 4, 5])) # 인자로 전달된 시퀀스 객체의 항목 중 임의 항목 반환
+print(choices([1, 2, 3, 4, 5], k=2)) # 인자로 전달된 시퀀스 객체의 항목 중 임의 항목 k개 반환 (복원추출)
+print(sample([1, 2, 3, 4, 5], k=2)) # 인자로 전달된 시퀀스 객체의 항목 중 임의 항목 k개 반환 (비복원추출)
+
+lst = [1, 2, 3, 4, 5]
+shuffle(lst)
+print(lst)
+```
+
+---
+## datetime 모듈
+- 날짜와 시간 정보를 확인하고 조작
+```python
+from datetime import datetime, timezone, timedelta
+
+now = datetime.now()
+print("{0}-{1:02}-{2:02}-{3:02}-{4:02}-{5:-02}".format(
+    now.year, now.month, now.day, now.hour, now.minute, now.second))    # 2021-06-04-20-40-52
+
+fmt = "%Y{0} %m{1} %d{2} %H{3} %M{4} %S{5}"
+print(now.strftime(fmt).format(*"년월일시분초"))     # 2021년 06월 04일 20시 40분 52초
+```
