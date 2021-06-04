@@ -106,3 +106,54 @@ print("{0}-{1:02}-{2:02}-{3:02}-{4:02}-{5:-02}".format(
 fmt = "%Y{0} %m{1} %d{2} %H{3} %M{4} %S{5}"
 print(now.strftime(fmt).format(*"년월일시분초"))     # 2021년 06월 04일 20시 40분 52초
 ```
+---
+## 리스트
+### 리스트 슬라이싱
+```python
+lst = [10, 20, 30, 40, 50]
+print(lst[0], lst[1], lst[2], lst[3], lst[4])
+print(lst[-1], lst[-2], lst[-3], lst[-4], lst[-5])
+
+print(lst[2: 5])       # 슬라이싱
+print(lst[2:3])        # 슬라이싱으로 요소 하나만 추출
+
+print(lst[:])       # 슬라이싱으로 전체 리스트 반환
+print(lst[::-1])    # 슬라이싱 방법 중 리스트의 순서를 뒤집는 방법
+
+print(lst[::2])     # 전체 리스트를 인덱스 간격 2로 반환
+print(lst[::-2])    # 뒤집은 리스트를 인덱스 간격 2로 반환
+```
+
+### 리스트 항목 추가
+```python
+lst = [10, 20, 30, 40]
+lst.append(50)
+print(lst)
+
+lst = [10, 20, 30, 40]
+lst.insert(0, 0)
+lst.insert(-1, 50)
+print(lst)
+
+lst = [10, 20, 30, 40]
+lst.extend([70, 80])    # = [10, 20, 30, 40] + [70, 80]
+lst.append([90, 100])   # append는 항목의 타입 상관없이 다 가능
+print(lst)
+```
+
+### 리스트 for 문
+- **enumerate()** 함수를 이용하면 각 항목의 인덱스도 같이 출력 가능
+
+```python
+lst = list(range(0, 11, 2))
+
+for i, item in enumerate(lst):
+    print("{}: {}".format(i, item))
+ ```
+
+### 리스트 내포 (comprehension)
+```python
+array = [[[c for c in range(3)] 
+          for y in range(3)] 
+         for x in range(3)]
+```
