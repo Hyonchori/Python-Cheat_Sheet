@@ -157,3 +157,17 @@ array = [[[c for c in range(3)]
           for y in range(3)] 
          for x in range(3)]
 ```
+---
+## 딕셔너리
+### 딕셔너리 value 기준 정렬
+```python
+data_dict = {
+    "홍길동" : 20,
+    "이순신" : 45,
+    "강감찬" : 35
+}
+
+data_list = sorted(data_dict.items(), key=lambda items: items[1], reverse=True)
+print(data_list)
+# [('이순신', 45), ('강감찬', 35), ('홍길동', 20)]
+```
