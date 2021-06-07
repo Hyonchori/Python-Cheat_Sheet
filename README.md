@@ -231,3 +231,74 @@ print(data_list)
 - **str.isdigit()** : 숫자로만 구성된 문자열인지 True/False 반환
 - **str.isalpha()** : 알파벳으로만 구성된 문자열인지 True/False 반환
 - **str.isalnum()** : 숫자, 알파벳으로만 구성된 문자열인지 True/False 반환
+
+---
+## 클래스
+### 데커레이터를 이용한 인스턴스 변수의 getter, setter 구현
+### 클래스 변수를 이용한 인스턴스 counting
+### 클래스 메서드 @classmethod
+### 비교연산자 오버로딩
+### str 메서드
+```python
+class Person:
+    count = 0    # 클래스 변수 선언
+    
+    def __init__(self, name, age):
+        self.__name = name
+        self.__age = age
+        Person.count += 1
+        print("객체 '{}'가 생성되었습니다.".format(self.__name))
+    
+    def __del__(self):
+        print("객체 '{}'가 제거되었습니다.".format(self.__name))
+        
+    def to_str(self):
+        return "{}\t{}".format(self.__name, self.__age)
+    
+    @property
+    def name(self):
+        return self.__name   # 클래스의 변수처럼 사용 가능. __name 필드값을 반환하는 getter 메서드 역할
+    
+    @property
+    def age(self):
+        return self.__age   # 클래스의 변수처럼 사용 가능. __age 필드값을 반환하는 getter 메서드 역할
+    
+    @age.setter
+    def age(self, age):    # 변수처럼 사용 가능, __name 필드값을 반환하는 setter 메서드 역할
+        if age < 0:
+            raise TypeError("나이는 0 이상의 값만 허용합니다.")
+        self.__age = age
+    
+    @classmethod
+    def get_info(cls):
+        return "현재 Person 클래스의 인스턴스는 총 {}개 입니다.".format(cls.count)
+    
+    def __gt__(self, other):  # greater than로 비교 연산자 '>' 에 해당
+        return self.__age > other.__age
+    
+    def __ge__(self, other):  # greater and equal로 비교 연산자 '>=' 에 해당
+        return self.__age >= other.__age
+    
+    def __lt__(self, other):  # lower로 비교 연산자 '<' 에 해당
+        return self.__age < other.__age
+    
+    def __le__(self, other):  # lower and equal로 비교 연산자 '<= 에 해당
+        return self.__age <= other.__age
+    
+    def __eq__(self, other):  # equal로 비교 연산자 '==' 에 해당
+        return self.__age == other.__age
+    
+    def __ne__(self, other):  # not equal로 비교 연산자 '!=' 에 해당
+        return self.__age != other.__age
+    
+    def __str__(self):
+        return "{}\t{}".format(self.__name, self.__age)
+
+members = [
+    Person("홍길동", 20),
+    Person("이순신", 45),
+    Person("강감찬", 35),
+]
+```
+
+
