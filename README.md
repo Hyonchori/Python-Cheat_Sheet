@@ -171,3 +171,63 @@ data_list = sorted(data_dict.items(), key=lambda items: items[1], reverse=True)
 print(data_list)
 # [('이순신', 45), ('강감찬', 35), ('홍길동', 20)]
 ```
+---
+## 문자열
+### 문자열 출현 횟수 확인
+>**str.count()**
+>- 해당 문자열에서 입력 문자열이 출현한 횟수 반환
+```python
+data_str = "Have a nice day!"
+
+print(data_str)
+input_str = input("위에서 찾고자 하는 문자열을 입력하세요: ")
+
+print("{}는 {}번 나타납니다.".format(input_str, data_str.count(input_str)))
+```
+
+### 문자열 탐색
+- **str.find()** : 문자열의 처음부터 탐색 시작. 찾으면 시작 인덱스 반환, 못 찾으면 -1  반환
+- **str.rfind()** : 문자열의 끝부터 탐색 시작. 찾으면 시작 인덱스 반환, 못 찾으면 -1 반환
+- **str.index()** : 입력 문자열이 처음 나타난 인덱스 반환, 못 찾으면 ValueError 발생
+
+### 문자열 삽입
+>**str.join()**
+>- 해당 문자열을 입력 문자열 사이사이에 삽입한 문자열 반환
+```python
+data_str = "가나다라마바사아자차카타파하"
+comma_space = ", "
+print(comma_space.join(data_str))
+```
+### 문자열 제거
+- **str.lstrip()** : 인자로 전달된 문자열을 왼쪽에서 제거
+- **str.rstrip()** : 인자로 전달된 문자열을 오른쪽에서 제거
+- **str.strip()** : 인자로 전달된 문자열을 양쪽에서 제거
+```python
+data_str = "__ ?0 Py thon _$@#   "
+print(data_str.lstrip(" 0?_#@$"))
+print(data_str.rstrip(" 0?_#@$"))
+print(data_str.strip(" 0?_#@$"))
+```
+### 문자열 교체
+> **str.replace()**
+>- replace(찾을 문자열, 교체 문자열, 횟수)
+>- 찾을 문자열과 교체 문자열을 인자로 사용해 교체
+```python
+data_str = "10....20....30....40....50"
+print(data_str.replace("....", "\t"))
+print(data_str.replace("....", "\t", 2))
+print(data_str.replace("....", "",))
+```
+### 문자열 자르기
+>**str.split()**
+>- 인자로 전달된 문자열을 기준으로 나누는 리스트 객체 생성
+```python
+data_str = "10, 20, 30, 40, 50"
+data_str = data_str.replace(" ", "")
+data_list = data_str.split(",")
+print(data_list)
+```
+### 문자열 구성 확인
+- **str.isdigit()** : 숫자로만 구성된 문자열인지 True/False 반환
+- **str.isalpha()** : 알파벳으로만 구성된 문자열인지 True/False 반환
+- **str.isalnum()** : 숫자, 알파벳으로만 구성된 문자열인지 True/False 반환
