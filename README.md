@@ -108,7 +108,7 @@ print(now.strftime(fmt).format(*"년월일시분초"))     # 2021년 06월 04일
 ```
 ---
 ## 리스트
-### 리스트 슬라이싱
+### - 리스트 슬라이싱
 ```python
 lst = [10, 20, 30, 40, 50]
 print(lst[0], lst[1], lst[2], lst[3], lst[4])
@@ -124,7 +124,7 @@ print(lst[::2])     # 전체 리스트를 인덱스 간격 2로 반환
 print(lst[::-2])    # 뒤집은 리스트를 인덱스 간격 2로 반환
 ```
 
-### 리스트 항목 추가
+### - 리스트 항목 추가
 ```python
 lst = [10, 20, 30, 40]
 lst.append(50)
@@ -141,7 +141,7 @@ lst.append([90, 100])   # append는 항목의 타입 상관없이 다 가능
 print(lst)
 ```
 
-### 리스트 for 문
+### - 리스트 for 문
 - **enumerate()** 함수를 이용하면 각 항목의 인덱스도 같이 출력 가능
 
 ```python
@@ -151,7 +151,7 @@ for i, item in enumerate(lst):
     print("{}: {}".format(i, item))
  ```
 
-### 리스트 내포 (comprehension)
+### - 리스트 내포 (comprehension)
 ```python
 array = [[[c for c in range(3)] 
           for y in range(3)] 
@@ -159,7 +159,7 @@ array = [[[c for c in range(3)]
 ```
 ---
 ## 딕셔너리
-### 딕셔너리 value 기준 정렬
+### - 딕셔너리 value 기준 정렬
 ```python
 data_dict = {
     "홍길동" : 20,
@@ -173,7 +173,7 @@ print(data_list)
 ```
 ---
 ## 문자열
-### 문자열 출현 횟수 확인
+### - 문자열 출현 횟수 확인
 >**str.count()**
 >- 해당 문자열에서 입력 문자열이 출현한 횟수 반환
 ```python
@@ -185,12 +185,12 @@ input_str = input("위에서 찾고자 하는 문자열을 입력하세요: ")
 print("{}는 {}번 나타납니다.".format(input_str, data_str.count(input_str)))
 ```
 
-### 문자열 탐색
+### - 문자열 탐색
 - **str.find()** : 문자열의 처음부터 탐색 시작. 찾으면 시작 인덱스 반환, 못 찾으면 -1  반환
 - **str.rfind()** : 문자열의 끝부터 탐색 시작. 찾으면 시작 인덱스 반환, 못 찾으면 -1 반환
 - **str.index()** : 입력 문자열이 처음 나타난 인덱스 반환, 못 찾으면 ValueError 발생
 
-### 문자열 삽입
+### - 문자열 삽입
 >**str.join()**
 >- 해당 문자열을 입력 문자열 사이사이에 삽입한 문자열 반환
 ```python
@@ -198,7 +198,7 @@ data_str = "가나다라마바사아자차카타파하"
 comma_space = ", "
 print(comma_space.join(data_str))
 ```
-### 문자열 제거
+### - 문자열 제거
 - **str.lstrip()** : 인자로 전달된 문자열을 왼쪽에서 제거
 - **str.rstrip()** : 인자로 전달된 문자열을 오른쪽에서 제거
 - **str.strip()** : 인자로 전달된 문자열을 양쪽에서 제거
@@ -208,7 +208,7 @@ print(data_str.lstrip(" 0?_#@$"))
 print(data_str.rstrip(" 0?_#@$"))
 print(data_str.strip(" 0?_#@$"))
 ```
-### 문자열 교체
+### - 문자열 교체
 > **str.replace()**
 >- replace(찾을 문자열, 교체 문자열, 횟수)
 >- 찾을 문자열과 교체 문자열을 인자로 사용해 교체
@@ -218,7 +218,7 @@ print(data_str.replace("....", "\t"))
 print(data_str.replace("....", "\t", 2))
 print(data_str.replace("....", "",))
 ```
-### 문자열 자르기
+### - 문자열 자르기
 >**str.split()**
 >- 인자로 전달된 문자열을 기준으로 나누는 리스트 객체 생성
 ```python
@@ -227,18 +227,18 @@ data_str = data_str.replace(" ", "")
 data_list = data_str.split(",")
 print(data_list)
 ```
-### 문자열 구성 확인
+### - 문자열 구성 확인
 - **str.isdigit()** : 숫자로만 구성된 문자열인지 True/False 반환
 - **str.isalpha()** : 알파벳으로만 구성된 문자열인지 True/False 반환
 - **str.isalnum()** : 숫자, 알파벳으로만 구성된 문자열인지 True/False 반환
 
 ---
 ## 클래스
-### 데커레이터를 이용한 인스턴스 변수의 getter, setter 구현
-### 클래스 변수를 이용한 인스턴스 counting
-### 클래스 메서드 @classmethod
-### 비교연산자 오버로딩
-### str 메서드
+### - 데커레이터를 이용한 인스턴스 변수의 getter, setter 구현
+### - 클래스 변수를 이용한 인스턴스 counting
+### - 클래스 메서드 @classmethod
+### - 비교연산자 오버로딩
+### - str 메서드
 ```python
 class Person:
     count = 0    # 클래스 변수 선언
